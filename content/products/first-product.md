@@ -1,5 +1,6 @@
 +++
 title = "Erstes Produkt [DE]"
+slug = "erstes-produkt"
 [menu.main]
 parent="products"
 +++

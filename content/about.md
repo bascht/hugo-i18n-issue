@@ -1,5 +1,6 @@
 +++
 title = "Über uns [DE]"
+slug = "ueber-uns"
 [menu.main]
 weight=3
 +++
