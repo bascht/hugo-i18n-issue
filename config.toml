@@ -1,0 +1,23 @@
+baseURL = "http://example.org/"
+
+LanguageCode = "de-de"
+DefaultContentLanguage = "de"
+DefaultContentLanguageInSubdir = true
+EnableMissingTranslationPlaceholders = true
+relativeURLs = true
+
+[menu]
+[[menu.main]]
+    name = "Home"
+    url  = "/"
+    weight = 1
+
+
+[languages]
+[languages.de]
+title = "My german Hugo Site"
+[languages.en]
+title = "My english Hugo site"
+
+[params]
+    locale = "de-de"

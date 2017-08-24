@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+        <style>body {font-family: monospace;} a { color: inherit; text-decoration: none; }</style>
+    </head>
+    <body> 
+        <a href="/de">[de]</a>
+        <a href="/en">[en]</a>
+
+        <ul class="sidebar-menu">
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.main }}
+                {{ if .HasChildren }}
+                    <li >
+                        <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                        <ul>
+                            {{ range .Children }}
+                                <li{{if $currentPage.IsMenuCurrent "main" . }} style="color: red;"{{end}}><a href="{{.URL | relLangURL}}"> {{ .Name }} </a> </li>
+                            {{ end }}
+                        </ul>
+                {{else}}
+                        <li {{if $currentPage.IsMenuCurrent "main" . }} style="color: red;"{{end}}>
+                            <a href="{{.URL | relLangURL}}">{{ .Name }}</a>
+                {{end}}
+                        </li>
+            {{end}}
+        </ul>
+        <h1>Title: {{ .Title }}</h1>
+        {{ block "main" . }}
+        {{ end }}
+        {{ block "footer" . }}
+        {{ end }}
+    </body>
+</html>
